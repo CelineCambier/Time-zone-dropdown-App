@@ -1,6 +1,9 @@
 body {
-    background-color: #f9f7fe;
+    background-image: url("../src/images/world.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     font-family: sans-serif;
+    opacity: 0.7;
 }
 
 h1 {
@@ -20,12 +23,18 @@ select {
     font-size: 18px;
     border-radius: 4px;
     padding: 10px;
-}
+    background-color: rgb(189, 189, 198);
+    font-weight: bold;
+} 
 
 footer {
     text-align: center;
     font-size: 18px;
-    color: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+
+footer a {
+    color: white;
 }
 
 .container {
@@ -33,7 +42,6 @@ footer {
     margin: 60px auto;
     background-color: white;
     padding: 30px;
-    box-shadow: 0px 7px 29px 0px rgba(100, 100, 111, 0.2);
     border-radius: 10px;
 }
 
@@ -42,7 +50,7 @@ footer {
     margin: 20px 0;
     justify-content: space-between;
     padding: 30px 0;
-    border-bottom: 1px dashed rgba(0, 0, 0, 0.2);
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.4);
 }
 
 .city:last-child {
