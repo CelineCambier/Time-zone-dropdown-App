@@ -13,7 +13,7 @@
 </head>
 <body>
     <form>
-        <select name="country" id="countries">
+        <select name="city" id="cities">
             <option value="">Select a city</option>
             <option value="Europe/Paris">Paris</option>
             <option value="Asia/Tokyo">Tokyo</option>
@@ -21,30 +21,16 @@
         </select>
     </form>
     <script>
-    function showTimeZone(event) {
-        if (event.target.value === "Europe/Paris") {
-            let parisTimeZone = moment()
-                .tz("Europe/Paris")
-                .format("dddd, MMMM D, YYYY h:mm a");
-            alert(`It is ${parisTimeZone} in Paris, France.`);
-        }
-        if (event.target.value === "Asia/Tokyo") {
-            let tokyoTimeZone = moment()
-                .tz("Asia/Tokyo")
-                .format("dddd, MMMM D, YYYY h:mm a");
-            alert(`It is ${tokyoTimeZone} in Tokyo, Japan.`);
-        }
-        if (event.target.value === "Australia/Sydney") {
-            let sydneyTimeZone = moment()
-                .tz("Australia/Sydney")
-                .format("dddd, MMMM D, YYYY h:mm a");
-            alert(`It is ${sydneyTimeZone} in Sydney, Australia.`);
-        }
+    function showDate(event) {
+        if (event.target.value.length > 0) {
+            let currentTime = moment().tz(event.target.value).format("dddd, MMMM D, YYYY h:mm a");
+            alert(`It is ${currentTime} in ${event.target.value}.`);
+        } 
     }
 
-    let cityElement = document.querySelector("#countries");
-    cityElement.addEventListener("change", showTimeZone);
-    
+    let cityElement = document.querySelector("#cities");
+    cityElement.addEventListener("change", showDate);
+
     </script>
 </body>
 </html>
