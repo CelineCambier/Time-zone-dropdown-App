@@ -1,11 +1,23 @@
-function showDate(event) {
-        if (event.target.value.length > 0) {
-            let currentTime = moment().tz(event.target.value).format("dddd, MMMM D, YYYY h:mm a");
-            alert(`It is ${currentTime} in ${event.target.value}.`);
-        } 
-    }
 
-    let cityElement = document.querySelector("#cities");
-    cityElement.addEventListener("change", showDate);
+function updateTime() {
+// Lisbon
+let lisbonElement = document.querySelector("#lisbon");
+let lisbonDateElement = lisbonElement.querySelector(".date");
+let lisbonTimeElement = lisbonElement.querySelector(".time");
+let lisbonTime = moment().tz("Europe/Lisbon");
 
+lisbonDateElement.innerHTML = lisbonTime.format("MMMM Do YYYY");
+lisbonTimeElement.innerHTML = lisbonTime.format("h:mm:ss [<small>]A[</small>]");
 
+// Paris
+let parisElement = document.querySelector("#paris");
+let parisDateElement = parisElement.querySelector(".date");
+let parisTimeElement = parisElement.querySelector(".time");
+let parisTime = moment().tz("Europe/paris");
+
+parisDateElement.innerHTML = parisTime.format("MMMM Do YYYY");
+parisTimeElement.innerHTML = parisTime.format("h:mm:ss [<small>]A[</small>]");
+}
+
+updateTime();
+setInterval(updateTime, 1000);
