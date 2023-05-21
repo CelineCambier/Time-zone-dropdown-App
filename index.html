@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylsheet" href="src/style.css"/>
+    <link rel="stylesheet" href="src/style.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.43/moment-timezone-with-data-1970-2030.min.js"></script>
     
-        <title>Time zone dropdown App</title>
+        <title>World Clock</title>
 </head>
 <body>
+    <h1>World Clock</h1>
     <form>
         <select name="city" id="cities">
             <option value="">Select a city</option>
@@ -20,17 +21,11 @@
             <option value="Australia/Sydney">Sydney</option>
         </select>
     </form>
-    <script>
-    function showDate(event) {
-        if (event.target.value.length > 0) {
-            let currentTime = moment().tz(event.target.value).format("dddd, MMMM D, YYYY h:mm a");
-            alert(`It is ${currentTime} in ${event.target.value}.`);
-        } 
-    }
 
-    let cityElement = document.querySelector("#cities");
-    cityElement.addEventListener("change", showDate);
+    <footer>
+        <a href="#" target="_blank"> Open-source code</a>, by Celine Cambier
+    </footer>
 
-    </script>
+    <script src="src/index.js"></script>
 </body>
 </html>
