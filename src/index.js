@@ -1,6 +1,7 @@
 
 function updateTime() {
-// Lisbon
+
+    // Lisbon
     let lisbonElement = document.querySelector("#lisbon");
     if (lisbonElement) {
     let lisbonDateElement = lisbonElement.querySelector(".date");
@@ -10,6 +11,7 @@ function updateTime() {
     lisbonDateElement.innerHTML = lisbonTime.format("MMMM Do YYYY");
     lisbonTimeElement.innerHTML = lisbonTime.format("h:mm:ss [<small>]A[</small>]");
     }
+
     // Paris
     let parisElement = document.querySelector("#paris");
     if (parisElement){
@@ -19,6 +21,17 @@ function updateTime() {
 
     parisDateElement.innerHTML = parisTime.format("MMMM Do YYYY");
     parisTimeElement.innerHTML = parisTime.format("h:mm:ss [<small>]A[</small>]");
+    }
+
+    // Moscow
+    let moscowElement = document.querySelector("#moscow");
+    if (moscowElement){
+    let moscowDateElement = moscowElement.querySelector(".date");
+    let moscowTimeElement = moscowElement.querySelector(".time");
+    let moscowTime = moment().tz("Europe/Moscow");
+
+    moscowDateElement.innerHTML = moscowTime.format("MMMM Do YYYY");
+    moscowTimeElement.innerHTML = moscowTime.format("h:mm:ss [<small>]A[</small>]");
     }
 }
 
@@ -38,13 +51,15 @@ function updateCity(event) {
         </div>
         <div class="time">${cityTime.format("h:mm:ss")}<small>${cityTime.format(" A")}</small></div>
     </div>
-    <a href="index.html" class="goBack">👈🏼 Back</a>
+    <a href="index.html" class="goBack">⇦ All Cities</a>
     `;
+    setTimeout(() => {
+        updateCity(event)
+    }, 1000);
 }
 
 updateTime();
 setInterval(updateTime, 1000);
-
 
 let citiesSelectElement = document.querySelector("#city");
 citiesSelectElement.addEventListener("change", updateCity);
